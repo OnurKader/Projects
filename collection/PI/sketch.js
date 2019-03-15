@@ -15,8 +15,10 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, 450);
+  // The Third Parameter is the Mass
   block1 = new Block(250, 80, 1, 0, 0);
   let mass = pow(100, digits);
+  // Block sizes aren't based on their masses
   block2 = new Block(width / 2 - 200, 275, mass, -5 / time_step, 80);
   count_div = createDiv(count);
   count_div.style("font-size", "69pt");
@@ -34,7 +36,6 @@ function draw() {
     if (block1.collide(block2)) {
       const v1 = block1.bounce(block2);
       const v2 = block2.bounce(block1);
-      // clack.play();
       should_clack = true;
       block1.v = v1;
       block2.v = v2;
@@ -44,7 +45,6 @@ function draw() {
     block2.update();
     if (block1.wall()) {
       block1.reverse();
-      // clack.play();
       should_clack = true;
       count++;
     }
@@ -56,6 +56,7 @@ function draw() {
   line(0, height, width, height);
   line(0, 0, 0, height);
   if (should_clack) {
+    // Doing it after the calculations are done or it'll crash the website
     clack.play();
   }
 }
