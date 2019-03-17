@@ -6,3 +6,5 @@ asdasd
 123123 **
 python3 < java < c++
 
+I DECLARE BANKRUPTCY!
+
