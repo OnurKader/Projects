@@ -12,12 +12,6 @@ class Helix {
         this.phase = phase;
     }
 
-    Helix(PVector pos, int repeat, float phase) {
-        this.pos = pos.copy();
-        rep = repeat;
-        this.phase = phase;
-    }
-
     void display() {
         float x, y, z, t;
         float r = 200;
